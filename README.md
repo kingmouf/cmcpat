@@ -1,6 +1,8 @@
-# cMcPAT - COSSIM-modified McPAT version. 
+# cMcPAT - Andreas modified version. 
 
-This repository includes the modified version of McPAT that is employed in the COSSIM simulation framework. It should be noted that cMcPAT can be used independently of COSSIM as a standalone package incorporating all the changes that have been integrated to the official McpAT v1.3 release.
+This repository contains a version of McPAT that is based on the modified version of McPAT employed in the [H2020 COSSIM](https://github.com/H2020-COSSIM) simulation framework. 
+
+This cMcPAT version can be used indepently from the COSSIM framework. Actually it is strongly advisable not to use it in the context of COSSIM as some of the changes made here make it compatible with newer versions of gem5, than the one used in COSSIM and therefore issues might arise.
 
 
 ## Differences between cMcPAT and official McPAT v1.3
@@ -39,9 +41,20 @@ Alpha 21364 | 125W / 396mm<sup>2</sup> | 86.03W / 311.69mm<sup>2</sup> | 85.86W 
 Xeon Tulsa | 150W / 435mm<sup>2</sup> | 134.94W / 411mm<sup>2</sup> | 146.33W / 432mm<sup>2</sup> |**75,6%** / **87,5%**
 Cortex A9 | 1.9W / 6.7mm<sup>2</sup> | 1.74W / 5.40mm<sup>2</sup> | 1.79W / 5.96mm<sup>2</sup> | **31,3%** / **43,1%**
 
+## Differences between my version of cMcPAT and official cMcPAT
+
+This version assumes that the gem5 version used is the latest (Nov. 2019) available in the [official gem5 repository](https://gem5.googlesource.com/public/gem5). Compared to the main cMcPAT's source code, minor changes have been made, however the script that is used to construct proper mcpat input xml files using the results of the gem5 simulation has been updated. In addition to the simpleCPU models support as specified in the ARM_AtomicSimpleCPU_template.xml and x86_AtomicSimpleCPU_template.xml, a new template - inorder_arm.xml has been added. This template can be used with the minorCPU model for ARM ISA of gem5.
+
+
 ## Compiling and executing cMcPAT
 
 Please read the [README](mcpat/README) file included in the mcpat folder.
+
+If you experience any issues/errors when trying to compile mcpat, then installing g++-multilib and libc6-dev-i386 should resolve those issues. 
+Assuming Ubuntu 19.10 where I was able to test it, type:
+sudo apt install libc6-dev-i386
+sudo apt install gcc-7-multilib g++-7-multilib  (replace 7 with the version of gcc/g++ you are using)
+
 
 ## Using gem5 statistics and configuration files to make proper cMcPAT inputs
 
@@ -51,21 +64,15 @@ Please check the GEM5toMcPAT script included in the Scripts folder.
 
 Please check the print_energy script included in the Scripts folder.
 
-## Using cMcPAT in the context of the COSSIM simulation framework
-
-Please refer to [COSSIM _framework](https://github.com/H2020-COSSIM/COSSIM_framework) repository for all required instructions.
-
 ## Licensing
 
 Refer to the [LICENSE](LICENSE) and [COPYING](COPYING.md) files included. Individual license may be present in different files in the source codes.
 
 #### Authors
 
-* Andreas Brokalakis (brokalakis@synelixis.com)
+* Andreas Brokalakis (kingmouf@gmail.com)
 
 Please contact for any questions.
 
-## Acknowledgments
 
-Code developed for the H2020-COSSIM project.
 
