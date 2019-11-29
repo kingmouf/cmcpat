@@ -6,9 +6,10 @@ The GEM5ToMcPAT.py conversion script uses the output files of cgem5 (gem5 stats 
 
 The script can be used with the generic versions of gem5 and McPAT (available from the official gem5 and McPAT repositories).
 It should be noted that the script works with the following versions of gem5 and McPAT:
-- cgem5 and cMcPAT
-- McPAT v1.3
-- gem5 up to Oct. 2017 stable release.
+- gem5 from the official gem5 repository (edition Nov.2019)
+- mcpat included in this repository
+- official McPAT v1.3
+
 
 The GEM5toMcPAT.py is attributed to Daya Khudia's [GEM5toMcPAT](https://bitbucket.org/dskhudia/gem5tomcpat) tool. However a series of changes have been made to address the following:
 
@@ -16,7 +17,7 @@ The GEM5toMcPAT.py is attributed to Daya Khudia's [GEM5toMcPAT](https://bitbucke
 - certain errors appeared when using "atomic simple" cpu models in gem5
 - the original tool does not account for the changes made in recent versions of gem5 (stats.txt and config.json have new fields or different entries). As such it would crash without producing proper output. Changes made in this version account for these modified stats.txt and config.json outputs of recent gem5 while taking steps to prevent the conversion script from crashing when more recent versions of gem5 break the standard form of these files.
 
-All changes made by Andreas Brokalakis, Synelixis Solutions (brokalakis@synelixis.com)
+All changes made by Andreas Brokalakis, Technical University of Crete, Greece (kingmouf@gmail.com)
 
 ### How to use the script
 
@@ -44,7 +45,7 @@ The script can be used with the generic versions of gem5 and McPAT (available fr
 It should be noted that the script works with the following versions of gem5 and McPAT:
 - cgem5 and cMcPAT
 - McPAT v1.3
-- gem5 up tp Oct. 2017 stable release.
+- gem5 up to Nov. 2019 stable release.
 
 The print_energy.py is a simplified version of Daya Khudia's [GEM5toMcPAT](https://bitbucket.org/dskhudia/gem5tomcpat) tool, incorporating all changes addressed in the GEM5toMcPAT.py available in this repository, in addition with a few enhancements to speed up the process.
 
@@ -66,10 +67,8 @@ print_energy.py [options] <mcpat output file> <gem5 stats file>
 
 ## Authors
 
-* Andreas Brokalakis (brokalakis@synelixis.com)
+* Andreas Brokalakis (kingmouf@gmail.com)
 
 Please contact for any questions.
 
-## Acknowledgments
 
-Code developed for the H2020-COSSIM project.
